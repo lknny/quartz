@@ -9,7 +9,9 @@ public class MyScheduler {
 
 	public MyScheduler(Trigger trigger, JobDetail job) {
 		try {
+			//默认的调度器
 			scheduler = StdSchedulerFactory.getDefaultScheduler();
+			//调度器设置job和trigger
 			scheduler.scheduleJob(job,trigger);
 		} catch (SchedulerException e) {
 			e.printStackTrace();

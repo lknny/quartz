@@ -10,13 +10,14 @@ public class App {
 
 	public static void main(String[] args) {
 
+		//trigger,触发器，设置名称，分组，调度器
 		Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1")
 				.startNow()
 				.withSchedule(SimpleScheduleBuilder.simpleSchedule()
 						.withIntervalInSeconds(1)
 						.repeatForever())
 				.build();
-
+		//Job，设置type，设置标示，设置jobData
 		JobDetail job = new JobDetailImpl().getJobBuilder().ofType(MyJob.class)
 				.withIdentity("group1","job1")
 				.usingJobData("name","liukun")
